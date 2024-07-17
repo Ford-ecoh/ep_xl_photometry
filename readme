@@ -1,0 +1,42 @@
+
+
+如果是使用python环境运行：
+在程序的文件夹下，运行python环境
+from main_progress import *
+使用ep_proresss命令
+
+示例：
+单个波段：
+ep_proresss('/home/asd628/Desktop/EP-data/20240313_bfosc','PHOTTARGET_ep',['Free_Free_Free'])
+
+多个波段：
+ep_proresss('/home/asd628/Desktop/EP-data/20240314_bfosc','PHOTTARGET_ep',['Free_Free_Free','Free_V_Free','Free_R_Free'])
+
+依次是：
+处理文件夹的路经：可以通过在目标文件下的终端使用pwd查看
+目标名称
+拍摄的波段
+
+如果要修改增益：
+请打开文件tfind.sex：
+更改GAIN 如下的GAIN为：2.2
+GAIN             2.2            # detector gain in e-/ADU
+
+
+文件名解释：
+_red：输出文件夹
+zf.fit：完成预处理的图像
+zfw.fit：完成WCS的图像
+.cat：sex提取的星表
+-xm.csv：与PanStar星表匹配后的星表文件
+_comparePS1.pdf：与PanStar图像对比的图，PDF可保存更多信息，可以放大可以更清楚
+_comparePS1_maybe_VS.pdf：标识可能的变星的图，及星表文件中的序号
+_comparePS1_maybe_VS.csv：_comparePS1_maybe_VS.pdf中标识对应的星表
+
+
+
+关于出现的报错
+Field: /home/asd628/Desktop/EP-data/20240314_bfosc_red/202403140120_PHOTTARGET_ep_Free_V_Freezf.fit
+Did not solve (or no WCS file was written).
+表是无法解算，之后请把zf.fit文件使用astronet解算，否则后面无法处理，
+解算完成后，命名为zfw.fit后放入输出文件夹_red，重新运行程序即可
